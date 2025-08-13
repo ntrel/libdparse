@@ -8888,7 +8888,8 @@ protected: final:
             else
                 import std.experimental.checkedint;
 
-            ++suppressMessages.back.checked;
+            auto ci = suppressMessages.back.checked;
+            suppressMessages.back = (ci + 1).get;
         }
         while (shouldAdvance && moreTokens())
         {
